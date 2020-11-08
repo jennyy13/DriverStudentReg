@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.github.jennyy13:Assignment1Software:v1.00">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/jennyy13/Assignment1Software/v1.00/Assignment1Software-v1.00.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/jennyy13/Assignment1Software/v1.00/Assignment1Software-v1.00-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/jennyy13/Assignment1Software/v1.00/Assignment1Software-v1.00-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
