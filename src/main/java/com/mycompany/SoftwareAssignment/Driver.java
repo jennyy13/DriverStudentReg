@@ -5,6 +5,7 @@ import com.mycompany.app.Student;
 import com.mycompany.app.Module;
 import org.joda.time.DateTime;
 
+import java.sql.SQLClientInfoException;
 import java.util.ArrayList;
 
 
@@ -14,7 +15,7 @@ public class Driver
     private static Student Nora, Anna, Jonathan;
     private static Module Maths, Ethics, MachineLearning;
 
-    public Driver(CourseProgramme courseProgramme) {
+    public Driver() {
 
         Maths = new Module("Maths", "MTS34");
         Nora = new Student("Nora", 21, new DateTime("1999-09-14"), 173093251);
@@ -60,14 +61,21 @@ public class Driver
         Ethics.addCourse(ComputerScience);
 
         MachineLearning.addCourse(ComputerScience);
+
+        ComputerScience.addModule(MachineLearning);
+        ComputerScience.addModule(Maths);
+        ComputerScience.addModule(Ethics);
+        Business.addModule(Ethics);
+        Business.addModule(Maths);
+        Science.addModule(Maths);
+        Science.addModule(Ethics);
+
+        ComputerScience.addStudent(Anna);
+        Business.addStudent(Nora);
+        Science.addStudent(Jonathan);
     }
 
-
-    public static void main(String[] args){
-        printToConsole();
-    }
-
-    public static void printToConsole(){
+    public void printToConsole(){
         studentPrint(Nora);
         studentPrint(Anna);
         studentPrint(Jonathan);
@@ -79,7 +87,7 @@ public class Driver
         coursesPrint(Science);
     }
 
-    public static void studentPrint(Student student){
+    public void studentPrint(Student student){
 
         System.out.println(student.getName());
         ArrayList<CourseProgramme> courses = student.getRegisteredCourses();
@@ -92,46 +100,46 @@ public class Driver
             System.out.println(course.getCourseName());
         }
 
-        System.out.println("They take the following modules:");
+        System.out.println("They take the following module(s):");
         ArrayList<Module> modules = student.getRegisteredModules();
         for (Module module : modules) {
             System.out.println(module.getModuleName());
         }
-
+        System.out.println();
     }
 
-    public static void modulePrint(Module module){
+    public void modulePrint(Module module){
 
         System.out.print(module.getModuleName());
         ArrayList<CourseProgramme> courses = module.getModuleCourses();
-        System.out.println(" is a module in the following courses:");
+        System.out.println(" is a module in the following course(s):");
         for (CourseProgramme course : courses) {
             System.out.println(course.getCourseName());
         }
 
         ArrayList<Student> students = module.getModuleStudents();
-        System.out.println("The following students take this module:");
+        System.out.println("The following student(s) take this module:");
         for (Student student : students) {
             System.out.println(student.getName());
         }
-
+        System.out.println();
     }
 
-    public static void coursesPrint(CourseProgramme course){
+    public void coursesPrint(CourseProgramme course){
 
         System.out.print(course.getCourseName());
         ArrayList<Module> modules = course.getCourseModules();
-        System.out.println(" has the following modules:");
+        System.out.println(" has the following module(s):");
         for (Module module : modules) {
             System.out.println(module.getModuleName());
         }
 
-        System.out.println("The following students are registered for this course:");
+        System.out.println("The following student(s) are registered for this course:");
         ArrayList<Student> students = course.getCourseStudents();
         for (Student student : students) {
             System.out.println(student.getName());
         }
-
+        System.out.println();
     }
 
 }
