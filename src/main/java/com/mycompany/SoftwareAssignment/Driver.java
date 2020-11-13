@@ -5,7 +5,6 @@ import com.mycompany.app.Student;
 import com.mycompany.app.Module;
 import org.joda.time.DateTime;
 
-import java.sql.SQLClientInfoException;
 import java.util.ArrayList;
 
 
